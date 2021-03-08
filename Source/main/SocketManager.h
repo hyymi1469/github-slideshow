@@ -14,7 +14,7 @@ private:
 	SOCKET*   m_listenSocket;    // 서버의 Listen 소켓 포인터
 	WSAEVENT* m_sockEvent;       // 소켓의 이벤트 객체 포인터
 	char      m_curListenCount;  // 현재 Listen 하는 개수
-	//Acceptor  m_acceptor;        // accept
+	//Acceptor  m_acceptor;      // accept
 
 public:
 	// 생성자

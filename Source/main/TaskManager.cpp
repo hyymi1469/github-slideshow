@@ -15,13 +15,8 @@ TaskManager::TaskManager()
 	m_logEnabled( false ),
 	m_nextLogTime( 0 )
 {
-	m_taskConsumer = [this] ( TaskExt* taskExt )
+	m_taskConsumer = [ this ] ( TaskExt* taskExt )
 	{
-		int aa = 3;
-		int a1 = 3;
-		int a2 = 3;
-		int a3 = 3;
-
 		( *taskExt )( );
 
 		*taskExt = nullptr;
@@ -96,16 +91,6 @@ void TaskManager::Reset( bool logEnabled /*= false*/, void* ownerPtr /*= nullptr
 int TaskManager::GetTaskCount() const
 {
 	return m_taskCount.load();
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-/// @brief	비어 있는지의 여부를 반환한다.
-/// 
-/// @return	비어 있는지의 여부
-////////////////////////////////////////////////////////////////////////////////////////////////////
-bool TaskManager::IsEmpty() const
-{
-	return m_taskQueue.empty() && m_subTaskQueue.empty();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -206,32 +191,6 @@ void TaskManager::WaitAndUpdate()
 	ftime( &tb );
 	const __int64 curTime = ( std::time( nullptr ) * 1000 ) + tb.millitm;
 	Update( curTime );
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-/// @brief	한 개의 작업을 갱신한다.
-/// 
-/// @return	작업을 성공적으로 수행했으면 true, 그렇지 않으면 false를 반환한다.
-////////////////////////////////////////////////////////////////////////////////////////////////////
-bool TaskManager::UpdateOne()
-{
-	if ( m_taskQueue.consume_one( m_taskConsumer ) )
-	{
-		if ( m_useConditionVariable )
-			m_hasTask = ( m_taskCount > 0 );
-
-		return true;
-	}
-
-	if ( m_subTaskQueue.consume_one( m_taskConsumer ) )
-	{
-		if ( m_useConditionVariable )
-			m_hasTask = ( m_taskCount > 0 );
-
-		return true;
-	}
-
-	return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

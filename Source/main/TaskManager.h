@@ -101,9 +101,6 @@ public:
 	/// 태스크 개수를 반환한다.
 	int GetTaskCount() const;
 
-	/// 비어 있는지의 여부를 반환한다.
-	bool IsEmpty() const;
-
 	/// 대상 쓰레드에서 작업을 실행한다.
 	void RunTask( const Task& task, bool blocking = false );
 
@@ -112,9 +109,6 @@ public:
 
 	/// 작업이 생길 때까지 대기 후 갱신한다.
 	void WaitAndUpdate();
-
-	/// 한 개의 작업을 갱신한다.
-	bool UpdateOne();
 
 private:
 	/// 작업을 넣는다.
