@@ -1,7 +1,7 @@
 server(C++)
 ======
 __Lock-Free IOCP Server(Windows)__
-- When deal with receive packet after operating GetQueuedCompletionStatus Function or .insert, .erase in STL(), you don't have to use lock(like mutex, critical section ...).
+- When deal with receive packet after operating GetQueuedCompletionStatus Function or .insert, .erase in STL(container), you don't have to use lock(like mutex, critical section ...).
 
 __Packet of Stream Type for Send/receive__
 -  you can use variable size type like std::string when packet send, receive, because not using the struct. 
