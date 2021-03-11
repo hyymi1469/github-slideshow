@@ -42,10 +42,10 @@ void User::OnDestroy()
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void User::Reset()
 {
-	if ( m_logicThread.load() )
-		m_logicThread.load()->DecreaseTaskCount();
+	if ( m_logicThread )
+		m_logicThread->DecreaseTaskCount();
 	
-	m_logicThread.store( nullptr );
+	m_logicThread = nullptr;
 	super::Reset();
 }
 
@@ -58,7 +58,7 @@ void User::Reset()
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 void User::SetLogicThread( LogicThread* logicThread )
 {
-	m_logicThread.store( logicThread );
+	m_logicThread = logicThread;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -68,7 +68,7 @@ void User::SetLogicThread( LogicThread* logicThread )
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 LogicThread* User::GetLogicThread()
 {
-	return m_logicThread.load();
+	return m_logicThread;
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -81,9 +81,10 @@ LogicThread* User::GetLogicThread()
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 int User::PacketHandler( const char* recvBuffer, const int recvSize )
 {
-	if ( !m_logicThread.load() )
-		m_logicThread.store(  (LogicThread*)( ThreadManager::GetSingleton()->GetIdleThread( "LogicThread" ) ) );
-
+	/*
+	if ( !m_logicThread )
+		m_logicThread = (LogicThread*)( ThreadManager::GetSingleton()->GetIdleThread( "LogicThread" ) );
+	*/
 	Packet packet;
 	packet.CopyToBuffer( recvBuffer, recvSize );
 
@@ -99,34 +100,34 @@ int User::PacketHandler( const char* recvBuffer, const int recvSize )
 			localTime->tm_hour, localTime->tm_min, localTime->tm_sec,
 			packet.GetProtocolId(), packetSize );
 
-	if ( !m_logicThread.load() )
+	if ( !m_logicThread )
 	{
 		OnDestroy();
-		return packetSize;
+		return -1;
 	}
 
 	m_lastRecvTime = std::time( nullptr );
 	User* user = this;
 	switch ( (Protocol)( packet.GetProtocolId() ) )
 	{
-		case Protocol::Test: m_logicThread.load()->RunTask( [ packet, user ] () mutable
-													 {
-														 PktTestHandler::OnHandler( packet, user );
-													 } ); break;
+		case Protocol::Test:
+			PktTestHandler::OnHandler( packet, user );
+			break;
+			
+		case Protocol::EventIncrease:
+			{
+				PktEventIncreaseHandler OnHandler;
+				OnHandler.OnHandler( packet, user );
+			}
+			break;
 
-		case Protocol::EventIncrease: m_logicThread.load()->RunTask( [ packet, user] () mutable
-													 {
-														PktEventIncreaseHandler::OnHandler( packet, user );
-													 } ); break;
+		case Protocol::EventDecrease:
+			PktEventDecreaseHandler::OnHandler( packet, user );
+			break;
 
-		case Protocol::EventDecrease: m_logicThread.load()->RunTask( [ packet, user ] () mutable
-															  {
-																  PktEventDecreaseHandler::OnHandler( packet, user );
-															  } ); break;
-		case Protocol::RequestDisconnect: m_logicThread.load()->RunTask( [ packet, user ] () mutable
-															  {
-																  PktRequestDisconnectHandler::OnHandler( packet, user );
-															  } ); break;
+		case Protocol::RequestDisconnect:
+			PktRequestDisconnectHandler::OnHandler( packet, user );
+			break;
 	}
 	
 	

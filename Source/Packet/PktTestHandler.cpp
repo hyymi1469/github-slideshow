@@ -13,8 +13,9 @@ void PktTestHandler::OnHandler( Packet& packet, User* user )
 	int aa = 0;
 	std::string str = "";
 	short bb = 0;
+	Packet recvPacket = packet;
 
-	packet >> aa >> str >> bb;
+	recvPacket >> aa >> str >> bb;
 
 	Packet sendPacket( Protocol::TestResult );
 	sendPacket << (short)119 << (std::string)( "resultplet" ) << int( 999 );

@@ -272,14 +272,15 @@ void Session::DispatchReceive( const DWORD bytesTransferred )
 			m_receivedPacketSize -= packetSize;
 			readPivot += packetSize;
 		}
+		else
+			break;
 	}
 
 	if ( m_receivedPacketSize > 0 )
-	{
 		::memmove( m_receiveBuffer, readPivot, m_receivedPacketSize );
-	}
 
-	Receive();
+	if ( m_socket != INVALID_SOCKET )
+		Receive();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

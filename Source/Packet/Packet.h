@@ -17,9 +17,6 @@ public:
 	// 생성자
 	Packet( Protocol protocolId );
 
-	// 생성자
-	Packet( const Packet& sourcePacket );
-
 	// 소멸자
 	virtual ~Packet();
 
@@ -79,9 +76,6 @@ public:
 
 	// Packet 클래스의 읽기 위치 포인터를 패킷 버퍼의 실제 데이터의 초기 위치로 이동 시킨다.
 	void ResetReadPt();
-
-	// = 연산자 오퍼레이터
-	Packet& operator = ( Packet& packet );
 
 	// 연산자 오퍼레이터
 	Packet& operator << ( bool source );

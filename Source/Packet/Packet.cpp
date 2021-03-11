@@ -27,34 +27,6 @@ Packet::Packet( Protocol protocolId )
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-/// @brief	생성자
-/// 
-/// @return	None
-////////////////////////////////////////////////////////////////////////////////////////////////////
-Packet::Packet( const Packet& sourcePacket )
-	: m_dataField( nullptr ), m_readPosition( nullptr ), m_writePosition( nullptr ), m_receivedSize( 0 )
-{
-	int offset = 0;
-
-	Clear();
-
-	::CopyMemory( m_arrPacketBuffer, sourcePacket.m_arrPacketBuffer, BUFFER_SIZE );
-	assert( m_readPosition <= m_endOfDataField && "ReadPosition이 DataField를 넘어갔습니다." );
-
-	// 읽는 위치 설정
-	offset = (int)( sourcePacket.m_readPosition - sourcePacket.m_dataField );
-	m_readPosition += offset;
-	assert( m_readPosition <= m_endOfDataField && "ReadPosition이 DataField를 넘어갔습니다." );
-
-	// 쓰는 위치 설정
-	offset = (int)( sourcePacket.m_writePosition - sourcePacket.m_dataField );
-	m_writePosition += offset;
-	assert( m_writePosition <= m_endOfDataField && "WritePosition이 DataField를 넘어갔습니다." );
-
-	m_receivedSize = sourcePacket.m_receivedSize;
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
 /// @brief	소멸자
 /// 
 /// @return	None
@@ -146,7 +118,7 @@ void Packet::Clear( int bufferSize )
 	memset( m_arrPacketBuffer, 0, bufferSize );
 
 	// 패킷 헤더 초기화
-	m_packetHeader.startCharacter = (char*)m_arrPacketBuffer;
+	m_packetHeader.startCharacter = (char*)( m_arrPacketBuffer );
 
 	m_packetHeader.dataSize = (unsigned short*)( m_arrPacketBuffer + PACKET_START_POS );
 	m_packetHeader.protocolId = (int*)( m_arrPacketBuffer + PACKET_HEADER_READ );
@@ -267,32 +239,6 @@ void Packet::WriteData( const void* buffer, int size )
 void Packet::ResetReadPt()
 {
 	m_readPosition = m_dataField;
-}
-
-// = 연산자 오퍼레이터
-Packet& Packet::operator = ( Packet& packet )
-{
-	if ( this == &packet )
-		return *this;
-
-	::CopyMemory( m_arrPacketBuffer, packet.GetPacketBuffer(), packet.GetPacketSize() );
-
-	m_packetHeader.startCharacter = (char*)m_arrPacketBuffer;
-	m_packetHeader.dataSize       = (unsigned short*)( m_arrPacketBuffer + PACKET_START_POS );
-	m_packetHeader.protocolId     = (int*)( m_arrPacketBuffer + PACKET_HEADER_READ );
-
-	m_dataField = &m_arrPacketBuffer[ 4 + 2 ];
-
-	// 데이터의 위치 포인터 초기화
-	m_readPosition = m_dataField;
-	m_writePosition = m_dataField;
-	m_endOfDataField = &m_arrPacketBuffer[ BUFFER_SIZE ];
-
-	assert( m_readPosition <= m_endOfDataField && "ReadPosition이 DataField를 넘어갔습니다." );
-
-	m_receivedSize = packet.m_receivedSize;
-
-	return *this;
 }
 
 Packet& Packet::operator << ( bool source )

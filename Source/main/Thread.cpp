@@ -112,4 +112,3 @@ unsigned int Thread::GetThreadId()
 {
 	return m_threadId;
 }
-

@@ -10,7 +10,7 @@ class User
 	typedef Session super;
 
 private:
-	std::atomic < LogicThread* > m_logicThread; // 현재 해당 유저가 활동 중인 로직 스레드
+	LogicThread* m_logicThread; // 현재 해당 유저가 활동 중인 로직 스레드
 
 public:
 	// 생성자

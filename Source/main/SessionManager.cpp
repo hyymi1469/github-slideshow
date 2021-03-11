@@ -212,6 +212,7 @@ void SessionManager::CheckAndDisconnect()
 	const INT64 curTime = std::time( nullptr );
 	std::list< Session* > deleteCandidateList;
 	
+	
 	{
 		std::unique_lock< std::mutex > lock( m_mutex );
 		for ( auto iter = m_activeObjectPoolMap.begin(); iter != m_activeObjectPoolMap.end(); ++iter )

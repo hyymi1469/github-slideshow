@@ -9,14 +9,25 @@ void PktEventDecreaseHandler::OnHandler( Packet& packet, User* user )
 	if ( !user )
 		return;
 
+	LogicThread* logicThread = user->GetLogicThread();
+	if ( !logicThread )
+		logicThread = (LogicThread*)( ThreadManager::GetSingleton()->GetIdleThread( "LogicThread" ) );
+
 	int key = 0;
 	int value = 0;
 	packet >> key >> value;
+	logicThread->RunTask
+	(
+		[ key, value, user ] ()
+		{
+			EventManager::GetSingleton()->SetEventMapCount( key, value );
 
-	//printf( "key : %d, value : %d\n", key, value );
-	EventManager::GetSingleton()->SetEventMapCount( key, value );
+			Packet sendPacket( Protocol::EventDecreaseResult );
+			sendPacket << (std::string)( "PktEventDecreaseHandler result" );
+			user->SendPacket( sendPacket );
+		}
+	);
 
-	Packet sendPacket( Protocol::EventDecreaseResult );
-	sendPacket << (std::string)( "PktEventDecreaseHandler result" );
-	user->SendPacket( sendPacket );
+	
+	
 }

@@ -1,11 +1,14 @@
 #pragma once
 #include "Packet.h"
+#include <mutex> // test ymi
 
 
 class User;
 class PktEventIncreaseHandler
 {
+private:
+	std::mutex m_mutex;
 public:
-	static void OnHandler( Packet& packet, User* user );
+	void OnHandler( Packet& packet, User* user );
 };
 

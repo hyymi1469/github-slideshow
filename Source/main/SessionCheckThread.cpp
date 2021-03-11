@@ -49,5 +49,4 @@ void SessionCheckThread::Run()
 		
 		SessionManager::GetSingleton()->CheckAndDisconnect();
 	}
-
 }
