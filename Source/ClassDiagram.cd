@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Accepter" Collapsed="true">
+    <Position X="0.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAAI=</HashCode>
+      <FileName>main\Accepter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Environment" Collapsed="true">
+    <Position X="14.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAGQAAAAAAAAAQAAABAABEAAiEgAEAEAA=</HashCode>
+      <FileName>main\Environment.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IocpManager" Collapsed="true">
+    <Position X="1" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACIAAAAAAAQAAAIAAAACAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>main\IocpManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IoThread" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAgAAAAAEAAAAAAAAAAAAAI=</HashCode>
+      <FileName>main\IoThread.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LockFreeQueueBase&lt;super, T&gt;" Collapsed="true">
+    <Position X="3.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIEAAEgAAAAAIAAAIAAAAAAAAAAAAAIAAIAACA=</HashCode>
+      <FileName>main\LockFreeQueue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LockFreeQueue&lt;T, size&gt;" Collapsed="true">
+    <Position X="3.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\LockFreeQueue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Logic" Collapsed="true">
+    <Position X="10" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>main\Logic.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LogicThread" Collapsed="true">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAkAAAAAAAAAAAAEAAQAAAAAAAAAAI=</HashCode>
+      <FileName>main\LogicThread.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Session" Collapsed="true">
+    <Position X="0.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GIgRAADDEIABBQBAAAAIABQCACBQAAAQEAgigCAAAAA=</HashCode>
+      <FileName>main\Session.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SessionCheckThread" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAgAAAAAI=</HashCode>
+      <FileName>main\SessionCheckThread.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SessionManager" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAACAgAAIAIQAAEAAAAgAQAAAgAAAAAAAAAAAIAAE=</HashCode>
+      <FileName>main\SessionManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Singleton&lt;T&gt;" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAABAAAACAAAAAAAAAAAEAAAAAABAAAAA=</HashCode>
+      <FileName>main\Singleton.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SocketManager" Collapsed="true">
+    <Position X="3.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAABAAAAAAAAAQAAACRAgAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>main\SocketManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskManager" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgQIAQQAGAQABQDgMAAMIAAAABAAAABEAABAQgJMBgA=</HashCode>
+      <FileName>main\TaskManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Thread" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAASACQBAABAAMAABgACAAAAAEAAAAAAAAAIAAAI=</HashCode>
+      <FileName>main\Thread.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ThreadManager" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAwAAAAAAAAAAAAAAAAAAAAIAABCAAAAAABAIAAA=</HashCode>
+      <FileName>main\ThreadManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="User" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAQBAEBAAAAAABAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\User.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WaitingWorld" Collapsed="true">
+    <Position X="10" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>World\WaitingWorld.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Packet" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAIABCAgABAAAABkCAAgQAAEgmAAAAAAAAQABAGSA=</HashCode>
+      <FileName>Packet\Packet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PktEventDecreaseHandler" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Packet\PktEventDecreaseHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PktEventIncreaseHandler" Collapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAIAAA=</HashCode>
+      <FileName>Packet\PktEventIncreaseHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PktRequestDisconnectHandler" Collapsed="true">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Packet\PktRequestDisconnectHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PktTestHandler" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Packet\PktTestHandler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventManager" Collapsed="true">
+    <Position X="7.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABCAAAAAAAAAABAAAAAEBAEAAAAQAgAAAAAgAAA=</HashCode>
+      <FileName>Contents\EventManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Typedef Name="IniStrMap" Collapsed="true">
+    <Position X="18.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\main.cpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="AccepterPtr" Collapsed="true">
+    <Position X="17" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\Accepter.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="IoThreadPtr" Collapsed="true">
+    <Position X="20.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\IoThread.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="LogicPtr" Collapsed="true">
+    <Position X="22.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\Logic.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="logicThreadPtr" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\LogicThread.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="SessionCheckThreadPtr" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\SessionCheckThread.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="THREAD_START" Collapsed="true">
+    <Position X="20.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\Thread.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ThreadPtr" Collapsed="true">
+    <Position X="20.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\Thread.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ThreadNameSet" Collapsed="true">
+    <Position X="17" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\ThreadManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ThreadPoolVector" Collapsed="true">
+    <Position X="18.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\ThreadManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="ThreadMap" Collapsed="true">
+    <Position X="22.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\ThreadManager.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Enum Name="ESocketType" Collapsed="true">
+    <Position X="20.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>main\Enum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EAcceptType" Collapsed="true">
+    <Position X="17" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABABAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>main\Enum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ESessionIoFlag" Collapsed="true">
+    <Position X="18.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>main\Enum.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Protocol" Collapsed="true">
+    <Position X="22.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAEAAAAAAAAAAAAAAACEAAIAAAAAAAAACBEAAAA=</HashCode>
+      <FileName>Packet\Protocol.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

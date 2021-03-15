@@ -13,61 +13,44 @@ void PktEventIncreaseHandler::OnHandler( Packet& packet, User* user )
 	if ( !logicThread )
 		logicThread = (LogicThread*)( ThreadManager::GetSingleton()->GetIdleThread( "LogicThread" ) );
 
-	int key = 0;
-	int value = 0;
-	packet >> key >> value;
+	int recvTest1 = 0;
+	int recvTest2 = 0;
+	packet >> recvTest1 >> recvTest2;
 	
 	// mustex 락 테스트
 	/*
+	int size = 0;
 	{
 		std::unique_lock< std::mutex > lock( m_mutex );
 
-		int size = EventManager::GetSingleton()->m_testEventMap.size() + 1;
-			EventManager::GetSingleton()->m_testEventMap.emplace( size, size );
-
-			printf( "curTestCount : %d / 10000\n", EventManager::GetSingleton()->m_testEventMap.size() );
-			for ( auto iter : EventManager::GetSingleton()->m_testEventMap )
-			{
-
-			}
-
-			if ( size >= 10000 )
-			{
-				printf( "Complete Time!! : %f\nserverFinish!\n", EventManager::GetSingleton()->GetTestTime() );
-				User* testUser = nullptr;
-				testUser->GetPort();
-			}
-
-			Packet sendPacket( Protocol::EventIncreaseResult );
-			sendPacket << (std::string)( "PktEventIncreaseHandler result" );
-			user->SendPacket( sendPacket );
+		size = EventManager::GetSingleton()->GetTestMapSize() + 1;
+		EventManager::GetSingleton()->EmplaceTestMap( size, size );
+		if ( size >= 10000 )
+			printf( "Complete Time!! : %f\nserverFinish!\n", EventManager::GetSingleton()->GetTestTime() );
 	}
+
+	Packet sendPacket( Protocol::EventIncreaseResult );
+	sendPacket << (std::string)( "PktEventIncreaseHandler test result" ) << size;
+	user->SendPacket( sendPacket );
 	*/
 	
 	
 	// lock-free 테스트
 	logicThread->RunTask
 	(
-		[ key, value, user ] ()
+		[ user ] ()
 		{
-			int size = EventManager::GetSingleton()->m_testEventMap.size() + 1;
-			EventManager::GetSingleton()->m_testEventMap.emplace( size, size );
-
-			printf( "curTestCount : %d / 10000\n", EventManager::GetSingleton()->m_testEventMap.size() );
-			for ( auto iter : EventManager::GetSingleton()->m_testEventMap )
-			{
-
-			}
-
+			int size = EventManager::GetSingleton()->GetTestMapSize() + 1;
+			EventManager::GetSingleton()->EmplaceTestMap( size, size );
 			if ( size >= 10000 )
-			{
 				printf( "Complete Time!! : %f\nserverFinish!\n", EventManager::GetSingleton()->GetTestTime() );
-				User* testUser = nullptr;
-				testUser->GetPort();
+
+			for ( auto iter : EventManager::GetSingleton()->GetTestMap() )
+			{
 			}
 
 			Packet sendPacket( Protocol::EventIncreaseResult );
-			sendPacket << (std::string)( "PktEventIncreaseHandler result" );
+			sendPacket << (std::string)( "PktEventIncreaseHandler test result" ) << size;
 			user->SendPacket( sendPacket );
 
 		}

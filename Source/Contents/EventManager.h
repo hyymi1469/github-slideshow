@@ -11,10 +11,10 @@ class EventManager
 	typedef long long Int64;
 	typedef std::map< int, Int64 > TestEventMap;
 
-public:
-	TestEventMap m_testEventMap; // 락프리 테스트를 위한 이벤트 맵
-	clock_t      m_start;        // temp ymi
-	clock_t      m_end;          // temp ymi
+private:
+	TestEventMap m_testMap; // 락프리 테스트를 위한 이벤트 맵
+	clock_t      m_start;   // temp ymi
+	clock_t      m_end;     // temp ymi
 
 public:
 	// 생성자
@@ -23,15 +23,18 @@ public:
 	// 소멸자
 	virtual ~EventManager();
 
+	// 테스트용 맵의 사이즈를 반환한다.
+	int GetTestMapSize();
+
 	// 이벤트 맵에 해당 키와 값을 추가한다.
-	void SetEventMapCount( const int key, const int value );
+	void EmplaceTestMap( const int key, const int value );
 
-	// 락프리 테스트를 위한 정수형을 증가시킨다.
-	void IncreaseTestCount();
-
-	// 락프리 테스트를 위한 정수형을 반환한다.
-	int GetTestCount();
-
+	// 시간 기록을 반환한다.
 	double GetTestTime();
+
+	TestEventMap& GetTestMap()
+	{
+		return m_testMap;
+	};
 };
 

@@ -20,7 +20,7 @@ void PktEventDecreaseHandler::OnHandler( Packet& packet, User* user )
 	(
 		[ key, value, user ] ()
 		{
-			EventManager::GetSingleton()->SetEventMapCount( key, value );
+			EventManager::GetSingleton()->EmplaceTestMap( key, value );
 
 			Packet sendPacket( Protocol::EventDecreaseResult );
 			sendPacket << (std::string)( "PktEventDecreaseHandler result" );
